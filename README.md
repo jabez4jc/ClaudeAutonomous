@@ -519,14 +519,36 @@ Every task includes:
 5. **Quality Over Speed** - Better to build right once than fix repeatedly
 6. **Alert Only When Necessary** - Minimize human interruptions
 
-## 🔄 Migration from Legacy Workflow
+## 🔄 Updating Existing Projects
 
-If you have an existing project with the old workflow:
+To add the new features to an existing AI-driven workflow project:
 
-1. **Backup current state**
-2. **Update .claude/ directory** with new enhanced commands
-3. **Run `/project`** to upgrade project configuration
-4. **Continue with `/plan`** or `/auto` for new features
+```bash
+# 1. Navigate to your existing project
+cd /path/to/your/existing/project
+
+# 2. Create the enhanced task folder structure
+mkdir -p tasks/{analysis,backlog,in-progress,testing,completed}
+touch tasks/{in-progress,testing}/.gitkeep
+
+# 3. Move any existing tasks to backlog
+mv tasks/*.md tasks/backlog/ 2>/dev/null || true
+
+# 4. Copy enhanced command files from this template
+cp /path/to/template/.claude/commands/plan.md .claude/commands/
+cp /path/to/template/.claude/commands/auto.md .claude/commands/
+cp /path/to/template/.claude/commands/plan-continue.md .claude/commands/
+
+# 5. Update settings.local.json to use relative paths
+# Edit .claude/settings.local.json and change:
+# "/full/path/.claude/hooks/script.sh" → ".claude/hooks/script.sh"
+
+# 6. Test the enhanced features
+/plan --complete      # Complete planning
+/auto --continuous    # Continuous execution
+```
+
+Your existing project now has enhanced autonomous capabilities!
 
 ---
 
