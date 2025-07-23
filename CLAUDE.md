@@ -18,12 +18,13 @@ Emphasize **deep thinking**, **prevention over fixing**, and **autonomous execut
 
 | Command | Purpose | Key Features |
 |---------|---------|--------------|
+| `/setup-mcp` | MCP server installation | One-time setup of 9 essential MCP servers |
 | `/project` | Intelligent project setup | 15+ app types, auto tech stacks, custom builder |
-| `/plan` | Deep thinking planning | Problem analysis, dependency mapping, blocker detection |
-| `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates |
-| `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry |
-| `/ship` | Production deployment | Monitoring, rollback, documentation |
-| `/auto` | **Fully autonomous workflow** | **Complete end-to-end solution** |
+| `/plan` | Deep thinking planning | Problem analysis, dependency mapping, blocker detection, MCP enhanced |
+| `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates, MCP enhanced |
+| `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry, MCP enhanced |
+| `/ship` | Production deployment | Monitoring, rollback, documentation, MCP enhanced |
+| `/auto` | **Fully autonomous workflow** | **Complete end-to-end solution with MCP integration** |
 
 ## Workflow Process
 
@@ -31,12 +32,13 @@ Emphasize **deep thinking**, **prevention over fixing**, and **autonomous execut
 Understand → Plan → Build → Test → (Retry if needed) → Ship
 ```
 
-### Deep Thinking Required
-- **Planning Phase**: 30-45 minutes comprehensive analysis
-- **Multiple Solutions**: Evaluate 2-3 approaches before selection  
-- **Dependency Mapping**: Comprehensive internal/external dependency analysis
+### Deep Thinking Required (MCP Enhanced)
+- **Documentation Reading**: First step - analyze all docs/ content + Context7 MCP for framework docs
+- **Planning Phase**: 30-45 minutes comprehensive analysis with Memory Bank MCP
+- **Multiple Solutions**: Evaluate 2-3 approaches before selection using GitHub MCP analysis
+- **Dependency Mapping**: Comprehensive internal/external dependency analysis with Database MCP
 - **Blocker Classification**: Identify technical, resource, knowledge, and process blockers
-- **Critical Path Analysis**: Create task dependency graphs with timelines
+- **Critical Path Analysis**: Create task dependency graphs with timelines using Sequential Thinking MCP
 - **Granular Breakdown**: Every task <4 hours, highly actionable and testable
 
 ### Test-Driven Development (Mandatory)
@@ -168,9 +170,31 @@ cp api-spec.yaml docs/design/api-specs/
 - **Alert Integration**: Only notifies when manual intervention required
 - **Progress Tracking**: Comprehensive logging and status monitoring
 
+## MCP Integration
+
+This workflow is enhanced with 9 essential MCP servers:
+
+- **Memory Bank MCP**: Preserve insights across sessions
+- **GitHub MCP**: Repository analysis and automation  
+- **Sequential Thinking MCP**: Enhanced problem breakdown
+- **Database MCP**: Schema analysis and migrations
+- **Puppeteer MCP**: Automated E2E testing
+- **File System MCP**: Enhanced file operations
+- **Notion MCP**: Documentation management
+- **Figma MCP**: Design-to-code workflow
+- **Context7 MCP**: Tech documentation understanding
+
+### Setup MCP Servers (One-time)
+```bash
+/setup-mcp
+```
+
 ## Quick Commands
 
 ```bash
+# Setup MCP servers (one-time)
+/setup-mcp
+
 # Start fully autonomous development
 /auto "Create a REST API with authentication"
 

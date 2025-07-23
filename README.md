@@ -40,7 +40,7 @@ A streamlined, autonomous development workflow where AI agents prioritize **deep
 - **🧪 Strict TDD** - Red-Green-Refactor methodology enforced
 - **📊 90%+ Test Coverage** - Comprehensive validation requirements
 - **🔔 Alert System** - Audio/visual alerts when attention needed
-- **🔌 MCP Integration** - Enhanced with Memory Bank, GitHub, Database, Puppeteer, and Context7 servers
+- **🔌 MCP Integration** - Enhanced with 9 essential servers: Memory Bank, GitHub, Database, Puppeteer, Context7, and more
 
 ### Application Types Supported
 
@@ -64,12 +64,13 @@ A streamlined, autonomous development workflow where AI agents prioritize **deep
 
 | Command | Purpose | Key Features |
 |---------|---------|--------------|
+| `/setup-mcp` | MCP server installation | One-time setup of 9 essential MCP servers |
 | `/project` | Intelligent project setup | 15+ app types, auto tech stacks, custom builder |
-| `/plan` | Deep thinking planning | Problem analysis, dependency mapping, blocker detection |
-| `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates |
-| `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry |
-| `/ship` | Production deployment | Monitoring, rollback, documentation |
-| `/auto` | **Fully autonomous workflow** | **Complete end-to-end solution** |
+| `/plan` | Deep thinking planning | Problem analysis, dependency mapping, blocker detection, MCP enhanced |
+| `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates, MCP enhanced |
+| `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry, MCP enhanced |
+| `/ship` | Production deployment | Monitoring, rollback, documentation, MCP enhanced |
+| `/auto` | **Fully autonomous workflow** | **Complete end-to-end solution with MCP integration** |
 
 ## 📁 Enhanced Project Structure
 
@@ -93,16 +94,17 @@ your-project/
     └── settings.local.json # Auto-approval config
 ```
 
-## 🧠 Deep Thinking Process
+## 🧠 Deep Thinking Process (MCP Enhanced)
 
 Every `/plan` command includes:
 
-1. **Problem Analysis** (30-45 minutes comprehensive analysis)
-2. **Multiple Solution Evaluation** (2-3 approaches considered)
-3. **Dependency Mapping** (internal/external dependencies)
-4. **Blocker Classification** (technical, resource, knowledge, process)
-5. **Critical Path Analysis** (task dependency graphs)
-6. **Granular Breakdown** (every task <4 hours, actionable)
+1. **Documentation Reading** (First step - analyze docs/ + Context7 MCP for framework docs)
+2. **Problem Analysis** (30-45 minutes comprehensive analysis with Memory Bank MCP)
+3. **Multiple Solution Evaluation** (2-3 approaches considered using GitHub MCP analysis)
+4. **Dependency Mapping** (internal/external dependencies with Database MCP)
+5. **Blocker Classification** (technical, resource, knowledge, process)
+6. **Critical Path Analysis** (task dependency graphs with Sequential Thinking MCP)
+7. **Granular Breakdown** (every task <4 hours, actionable)
 
 ## 🧪 Test-Driven Development (Mandatory)
 
@@ -111,6 +113,26 @@ Every `/plan` command includes:
 3. **Refactor Phase**: Improve code while keeping tests green
 4. **Coverage**: Maintain >90% test coverage
 5. **Auto-retry**: Failed tests trigger build phase fixes
+
+## 🔌 MCP Integration
+
+This workflow is enhanced with 9 essential MCP servers for autonomous development:
+
+### Core MCP Servers
+- **🧠 Memory Bank MCP**: Preserve insights and architectural decisions across sessions
+- **🐙 GitHub MCP**: Repository analysis, PR automation, CI/CD integration
+- **🎯 Sequential Thinking MCP**: Enhanced problem breakdown for planning phase
+- **🗄️ Database MCP**: Schema analysis and migration automation
+- **🤖 Puppeteer MCP**: Automated E2E testing and web interaction
+- **📁 File System MCP**: Enhanced file operations and structure creation
+- **📋 Notion MCP**: Documentation and requirements management
+- **🎨 Figma MCP**: Design-to-code workflow integration
+- **📚 Context7 MCP**: Tech documentation understanding and framework guidance
+
+### Setup (One-time)
+```bash
+/setup-mcp  # Installs all 9 MCP servers automatically
+```
 
 ## 🔧 Auto-Approved Commands
 
