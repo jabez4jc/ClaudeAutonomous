@@ -1,15 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add:*)"
+      "Bash(test:*)"
     ],
     "deny": []
   },
   "toolHooks": {
-    "Write": "/Users/jnt/ClaudeAutonomous/.claude/hooks/tool-output-hook.sh",
-    "Edit": "/Users/jnt/ClaudeAutonomous/.claude/hooks/tool-output-hook.sh"
+    "Write": ".claude/hooks/tool-output-hook.sh",
+    "Edit": ".claude/hooks/tool-output-hook.sh"
   },
-  "userPromptHook": "/Users/jnt/ClaudeAutonomous/.claude/hooks/user-prompt-submit-hook.sh",
+  "userPromptHook": ".claude/hooks/user-prompt-submit-hook.sh",
   "autoApprove": {
     "enabled": true,
     "commands": [
