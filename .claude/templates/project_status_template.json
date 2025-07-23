@@ -1,0 +1,28 @@
+{
+  "project": {
+    "name": "Project Name",
+    "type": "API|WebApp|CLI|Library",
+    "language": "Python|JavaScript|Go|Other",
+    "initialized": "YYYY-MM-DD",
+    "version": "0.1.0"
+  },
+  "current_task": {
+    "id": "task-001",
+    "name": "Current task name",
+    "status": "in-progress",
+    "started": "YYYY-MM-DD HH:MM:SS"
+  },
+  "metrics": {
+    "tasks_completed": 0,
+    "tasks_in_progress": 0,
+    "tasks_in_backlog": 0,
+    "test_coverage": 0,
+    "deployment_count": 0
+  },
+  "environment": {
+    "setup_complete": false,
+    "dependencies_installed": false,
+    "tests_passing": false
+  },
+  "last_updated": "YYYY-MM-DD HH:MM:SS"
+}
