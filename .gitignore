@@ -1,0 +1,366 @@
+# AI-Driven Development Workflow - .gitignore
+
+# ===========================================
+# SYSTEM FILES
+# ===========================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ===========================================
+# DEVELOPMENT ENVIRONMENTS
+# ===========================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+
+# Python Tools
+.coverage
+.pytest_cache/
+.tox/
+.nox/
+.coverage.*
+htmlcov/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Rust
+target/
+Cargo.lock
+
+# Java
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
+# ===========================================
+# DATABASES
+# ===========================================
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Database dumps
+*.sql
+
+# ===========================================
+# LOGS & TEMPORARY FILES
+# ===========================================
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary folders
+tmp/
+temp/
+
+# ===========================================
+# IDE & EDITOR FILES
+# ===========================================
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*~
+*.swp
+*.swo
+*~ 
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===========================================
+# SECURITY & SECRETS
+# ===========================================
+
+# Environment variables
+.env
+.env.local  
+.env.development.local
+.env.test.local
+.env.production.local
+
+# API Keys & Secrets
+*.pem
+*.key
+*.crt
+*.cert
+.env.*
+config/secrets.yml
+secrets.json
+
+# ===========================================
+# CLOUD & DEPLOYMENT
+# ===========================================
+
+# Vercel
+.vercel
+
+# Netlify
+.netlify/
+
+# AWS
+.aws/
+
+# Docker
+.dockerignore
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# ===========================================
+# AI WORKFLOW SPECIFIC
+# ===========================================
+
+# Workflow runtime files
+.claude/logs/
+.claude/workflow/current_task.json
+.claude/workflow/subtasks.json
+.claude/workflow/blockers.json
+
+# Task execution artifacts
+tasks/*/artifacts/
+tasks/*/logs/
+
+# Generated documentation
+docs/generated/
+
+# Test artifacts
+coverage/
+test-results/
+playwright-report/
+test-output/
+
+# Build artifacts
+artifacts/
+
+# Backup files
+*.backup
+*.bak
+*.orig
+
+# ===========================================
+# PACKAGE MANAGERS & DEPENDENCIES
+# ===========================================
+
+# UV (Python)
+.uv/
+
+# Poetry
+poetry.lock
+
+# Pipenv
+Pipfile.lock
+
+# ===========================================
+# MONITORING & ANALYTICS
+# ===========================================
+
+# Sentry
+.sentryclirc
+
+# ===========================================
+# KEEP THESE FILES (NEGATED PATTERNS)
+# ===========================================
+
+# Keep important config files
+!.env.example
+!.gitkeep
+!.claude/settings.local.json
+!.claude/commands/
+!.claude/workflow/*.sh
+!.claude/hooks/
+!.claude/templates/
+
+# Keep documentation structure
+!docs/requirements/.gitkeep
+!docs/design/.gitkeep
+!docs/guidelines/.gitkeep
+
+# Keep task structure
+!tasks/analysis/.gitkeep
+!tasks/backlog/.gitkeep
+!tasks/in-progress/.gitkeep
+!tasks/testing/.gitkeep
+!tasks/completed/.gitkeep
+
+# Keep test structure
+!tests/unit/.gitkeep
+!tests/integration/.gitkeep
+!tests/e2e/.gitkeep
+!tests/performance/.gitkeep
