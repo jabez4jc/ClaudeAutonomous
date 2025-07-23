@@ -10,10 +10,17 @@ A streamlined, autonomous development workflow where AI agents prioritize **deep
 # 1. Setup MCP servers (one-time)
 /setup-mcp
 
-# 2. Start autonomous development
-/auto "Create a REST API with user authentication"
+# 2. Complete planning + continuous autonomous development
+/plan --complete
+/auto --continuous
 
-# 3. Or use step-by-step approach
+# 3. Alternative: Iterative approach
+/plan                    # Initial planning (3-5 primary tasks)
+/auto                    # Work on first tasks
+/plan-continue           # Generate remaining tasks
+/auto --continuous       # Process entire backlog
+
+# 4. Step-by-step approach
 /project  # Initialize with 15+ app types
 /plan     # Deep thinking + dependency mapping (MCP enhanced)
 /build    # TDD implementation (MCP enhanced)
@@ -31,9 +38,12 @@ A streamlined, autonomous development workflow where AI agents prioritize **deep
 
 ## ⚡ Key Features
 
-### What's New
+### What's New ✨
 - **🤖 Fully Autonomous Workflow** - `/auto` command handles everything
-- **🧠 Deep Thinking Planning** - 30-45 minute analysis phases required
+- **⚡ Continuous Task Processing** - `/auto --continuous` processes entire backlog automatically
+- **📋 Enhanced Planning Options** - `/plan --complete` creates all tasks upfront, `/plan-continue` generates remaining tasks
+- **🔄 Automatic Task Management** - Tasks move through `backlog → in-progress → testing → completed` automatically
+- **🧠 Deep Thinking Planning** - 30-45 minute analysis phases (standard) or 45-60 minute complete planning
 - **📱 15+ Application Types** - Web apps, mobile, APIs, CLIs with auto tech stacks
 - **🔗 Dependency Mapping** - Comprehensive analysis of all dependencies
 - **🚧 Smart Blocker Detection** - Identifies and resolves blockers automatically
@@ -67,10 +77,13 @@ A streamlined, autonomous development workflow where AI agents prioritize **deep
 | `/setup-mcp` | MCP server installation | One-time setup of 9 essential MCP servers |
 | `/project` | Intelligent project setup | 15+ app types, auto tech stacks, custom builder |
 | `/plan` | Deep thinking planning | Problem analysis, dependency mapping, blocker detection, MCP enhanced |
+| `/plan --complete` | Complete task planning | Create ALL tasks in one session (45-60 min) |
+| `/plan-continue` | Continue planning | Generate remaining tasks from analysis summaries |
 | `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates, MCP enhanced |
 | `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry, MCP enhanced |
 | `/ship` | Production deployment | Monitoring, rollback, documentation, MCP enhanced |
 | `/auto` | **Fully autonomous workflow** | **Complete end-to-end solution with MCP integration** |
+| `/auto --continuous` | **Continuous autonomous execution** | **Process entire backlog with automatic task progression** |
 
 ## 📁 Enhanced Project Structure
 
@@ -425,17 +438,54 @@ Automatic audio/visual alerts when:
 - Workflow gets blocked
 - Agent handoffs occur
 
+## 🔄 Enhanced Workflow Options
+
+### Planning Approaches
+
+#### Complete Planning (All Tasks Upfront)
+```bash
+/plan --complete         # 45-60 min session, creates ALL tasks
+/auto --continuous       # Process entire backlog autonomously
+```
+
+#### Iterative Planning (Phased Approach)  
+```bash
+/plan                    # Initial planning (3-5 primary tasks)
+/auto                    # Work on first tasks
+/plan-continue           # Generate remaining tasks from summaries
+/auto --continuous       # Continue autonomous processing
+```
+
+### Task Lifecycle Management
+Tasks automatically move through folders:
+```
+tasks/backlog/ → tasks/in-progress/ → tasks/testing/ → tasks/completed/
+```
+
+### Autonomous Execution Options
+```bash
+/auto                    # Process single task, then stop
+/auto --continuous       # Process entire backlog sequentially  
+/auto "specific task"    # Execute specific task description
+```
+
 ## 🚦 Quick Commands
 
 ```bash
-# Check workflow status
-cat ./.claude/workflow/current_task.json
+# Check project status with task counts
+cat ./.claude/project_status.json
 
-# Monitor progress
+# Monitor autonomous workflow progress
 tail -f ./.claude/logs/autonomous-workflow.log
+
+# View task distribution across folders
+find tasks/ -name "*.md" | sort
 
 # Test alert system
 ./.claude/hooks/user-attention-alert.sh complete "Test message"
+
+# Run continuous processing script
+./.claude/scripts/continuous-auto.sh --continuous
 ```
 
 ## 🛠️ Advanced Features

@@ -21,10 +21,13 @@ Emphasize **deep thinking**, **prevention over fixing**, and **autonomous execut
 | `/setup-mcp` | MCP server installation | One-time setup of 9 essential MCP servers |
 | `/project` | Intelligent project setup | 15+ app types, auto tech stacks, custom builder |
 | `/plan` | Deep thinking planning | Problem analysis, dependency mapping, blocker detection, MCP enhanced |
+| `/plan --complete` | Complete task planning | Create ALL tasks in one session (45-60 min) |
+| `/plan-continue` | Continue planning | Generate remaining tasks from analysis summaries |
 | `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates, MCP enhanced |
 | `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry, MCP enhanced |
 | `/ship` | Production deployment | Monitoring, rollback, documentation, MCP enhanced |
 | `/auto` | **Fully autonomous workflow** | **Complete end-to-end solution with MCP integration** |
+| `/auto --continuous` | **Continuous autonomous execution** | **Process entire backlog with automatic task progression** |
 
 ## Workflow Process
 
@@ -189,20 +192,51 @@ This workflow is enhanced with 9 essential MCP servers:
 /setup-mcp
 ```
 
+## Enhanced Planning Options
+
+### Standard Planning (Phased Approach)
+```bash
+/plan                    # Initial planning with 3-5 primary tasks
+/plan-continue           # Generate remaining tasks from analysis summaries
+```
+
+### Complete Planning (All Tasks Upfront)
+```bash
+/plan --complete         # Create ALL detailed tasks in one 45-60 min session
+```
+
+## Enhanced Autonomous Execution
+
+### Single Task Processing
+```bash
+/auto                    # Process next available task from backlog
+/auto "specific task"    # Execute specific task description
+```
+
+### Continuous Processing
+```bash
+/auto --continuous       # Process entire backlog sequentially
+                        # Automatic task folder management:
+                        # backlog → in-progress → testing → completed
+```
+
 ## Quick Commands
 
 ```bash
 # Setup MCP servers (one-time)
 /setup-mcp
 
-# Start fully autonomous development
-/auto "Create a REST API with authentication"
+# Complete planning + continuous execution
+/plan --complete && /auto --continuous
 
-# Check workflow status
-cat ./.claude/workflow/current_task.json
-
-# Monitor progress
+# Monitor autonomous workflow
 tail -f ./.claude/logs/autonomous-workflow.log
+
+# Check project status
+cat ./.claude/project_status.json
+
+# View task distribution
+find tasks/ -name "*.md" | sort
 ```
 
 ## Key Principles for AI Agents
