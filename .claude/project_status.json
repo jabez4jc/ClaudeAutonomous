@@ -1,0 +1,31 @@
+{
+  "project_name": "AI-Driven Development Workflow",
+  "project_type": "Development Template",
+  "created_date": "2025-07-24",
+  "last_updated": "2025-07-24",
+  "status": "active",
+  "task_counts": {
+    "analysis": 0,
+    "backlog": 0,
+    "in_progress": 0,
+    "testing": 0,
+    "completed": 0
+  },
+  "quality_metrics": {
+    "test_coverage": {
+      "unit": 0,
+      "integration": 0,
+      "e2e": 0,
+      "performance": 0,
+      "security": 0,
+      "chaos": 0
+    },
+    "code_quality": "not_assessed",
+    "security_status": "not_assessed"
+  },
+  "workflow_config": {
+    "auto_approval_enabled": true,
+    "continuous_mode": false,
+    "dependency_isolation": true
+  }
+}
