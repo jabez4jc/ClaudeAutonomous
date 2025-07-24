@@ -25,6 +25,7 @@ Emphasize **deep thinking**, **prevention over fixing**, and **autonomous execut
 | `/plan-continue` | Continue planning | Generate remaining tasks from analysis summaries |
 | `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates, MCP enhanced |
 | `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry, MCP enhanced |
+| `/dev` | **Development server management** | **Unified start/stop with automatic port cleanup and process management** |
 | `/ship` | Production deployment | Monitoring, rollback, documentation, MCP enhanced |
 | `/auto` | **Feedback-driven workflow** | **Task execution with human checkpoints and validation** |
 | `/auto --interactive` | **Interactive frontend development** | **High-frequency feedback with visual previews for UI work** |
@@ -85,7 +86,34 @@ Before build phase, automatically:
 - Resolve environment configuration issues  
 - Set up development databases and services
 - Configure CI/CD pipelines
+- **Clean up existing dev servers and port conflicts**
+- **Start required services with health checks**
 - Only proceed when all blockers resolved
+
+### Development Server Management (Required)
+All AI agents must follow these process management rules:
+
+**Before Starting Any Servers:**
+1. **Kill existing processes** on target ports (3000, 8000, 5432)
+2. **Clean up zombie processes** from previous sessions
+3. **Use health checks** to verify server readiness before proceeding
+
+**Port Strategy:**
+- **Development**: Frontend(3000), Backend(8000), Database(5432)
+- **Testing**: Frontend(3100), Backend(8100), Database(5532) 
+- **Fallback ports**: Increment by 1 if conflicts detected
+
+**Process Lifecycle:**
+1. **Start backend first** with health endpoint verification
+2. **Start frontend second** with backend proxy configuration
+3. **Store process IDs** in `.claude/dev-pids.txt` for cleanup
+4. **Graceful shutdown** after task completion or phase transition
+
+**Integration Points:**
+- **`/build` phase**: Auto-start servers for testing implementation
+- **`/test` phase**: Use isolated test ports to avoid dev conflicts
+- **`/auto --interactive`**: Start servers for live preview and feedback
+- **`/dev` command**: Manual control for human testing and development
 
 ## Project Structure
 

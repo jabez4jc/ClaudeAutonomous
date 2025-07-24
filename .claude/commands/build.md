@@ -130,6 +130,63 @@ mkdir -p tests/{unit,integration,e2e,performance}
 ## Kaizen Practice
 With every commit: Fix small issue, improve docs, refactor unclear code, reduce complexity
 
+## Development Server Management During Build
+
+### Automatic Process Cleanup
+Before starting any development servers during build phase:
+
+```bash
+# Kill existing dev servers to prevent port conflicts
+lsof -ti:3000,8000,5432 | xargs kill -9 2>/dev/null || true
+pkill -f "npm.*dev\|uvicorn\|flask\|gunicorn" 2>/dev/null || true
+
+# Clean up zombie processes from previous sessions
+ps aux | grep -E "(npm|node|python|uvicorn)" | grep -v grep | awk '{print $2}' | xargs kill -9 2>/dev/null || true
+```
+
+### Smart Server Startup
+The AI agent will automatically:
+
+1. **Detect project type** (React+FastAPI, Next.js, etc.)
+2. **Clean up existing processes** on target ports
+3. **Start servers in correct order** (backend first, then frontend)
+4. **Verify health checks** before proceeding with development
+5. **Store process IDs** for cleanup after build completion
+
+### Integration with Testing
+- **Frontend builds**: Automatically start dev server for live preview during interactive checkpoints
+- **Backend builds**: Start API server for testing endpoints with curl/Postman
+- **Full-stack builds**: Start both servers with proper proxy configuration
+- **Cleanup**: Always stop dev servers after build phase completion
+
+## Process Management Best Practices
+
+### Port Assignment Strategy
+- **Frontend**: 3000 (fallback: 3001, 3002, 3003)
+- **Backend**: 8000 (fallback: 8001, 8002, 8003)  
+- **Database**: 5432 (fallback: 5433, 5434, 5435)
+- **Test instances**: +100 offset (3100, 8100, 5532)
+
+### Health Check Requirements
+```bash
+# Backend health verification
+timeout 30 bash -c 'until curl -f http://localhost:8000/health; do sleep 1; done'
+
+# Frontend health verification  
+timeout 30 bash -c 'until curl -f http://localhost:3000; do sleep 1; done'
+```
+
+### Cleanup After Build
+```bash
+# Read stored PIDs and gracefully shutdown
+if [ -f .claude/dev-pids.txt ]; then
+    cat .claude/dev-pids.txt | xargs kill -TERM 2>/dev/null || true
+    sleep 2
+    cat .claude/dev-pids.txt | xargs kill -9 2>/dev/null || true  
+    rm .claude/dev-pids.txt
+fi
+```
+
 ## Check Current Task
 ```bash
 ls tasks/in-progress/*.md 2>/dev/null || echo "Use /plan first"

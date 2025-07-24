@@ -158,11 +158,74 @@ Circuit breakers, retry logic, fallback mechanisms, health checks, resource limi
 - **Chaos Tests Fail** → `/build` (implement resilience patterns)
 - **Unclear Test Requirements** → `/plan` (clarify testing criteria)
 
+## Test Environment Management
+
+### Automatic Test Server Cleanup
+Before running any tests that require servers:
+
+```bash
+# Kill existing dev servers to prevent port conflicts during testing
+lsof -ti:3100,8100,5532 | xargs kill -9 2>/dev/null || true  # Test ports
+lsof -ti:3000,8000,5432 | xargs kill -9 2>/dev/null || true  # Dev ports
+pkill -f "npm.*test\|pytest.*test\|jest" 2>/dev/null || true
+```
+
+### Test-Specific Port Strategy
+- **Frontend tests**: Port 3100 (isolated from dev:3000)
+- **Backend tests**: Port 8100 (isolated from dev:8000)  
+- **Database tests**: Port 5532 (isolated from dev:5432)
+- **Integration tests**: Use test-specific URLs and configurations
+
+### Test Server Lifecycle
+```bash
+# For E2E and Integration tests that need running servers:
+
+# 1. Start test backend (if needed)
+cd backend && TEST_PORT=8100 uv run uvicorn main:app --port 8100 &
+TEST_BACKEND_PID=$!
+
+# 2. Wait for backend health
+timeout 30 bash -c 'until curl -f http://localhost:8100/health; do sleep 1; done'
+
+# 3. Start test frontend (if needed)  
+cd frontend && REACT_APP_API_URL=http://localhost:8100 PORT=3100 npm start &
+TEST_FRONTEND_PID=$!
+
+# 4. Run tests
+npm run test:e2e -- --baseURL=http://localhost:3100
+
+# 5. Cleanup test servers
+kill $TEST_BACKEND_PID $TEST_FRONTEND_PID 2>/dev/null || true
+```
+
 ## Automated Test Pipeline
 The AI agent should run tests automatically in the following sequence without human intervention:
-1. Setup test environment and dependencies
-2. Execute all test categories in order (unit → integration → e2e → performance → security → chaos)
-3. Generate comprehensive test report with coverage metrics
-4. Auto-retry failed tests once with different conditions
-5. Only proceed to `/ship` if ALL test categories pass
-6. If tests fail after retry, provide detailed failure analysis and return to `/build`
+
+1. **Setup test environment and dependencies**
+   - Clean up existing test processes and ports
+   - Start required test servers on isolated ports
+   - Verify test server health before proceeding
+
+2. **Execute all test categories in order** (unit → integration → e2e → performance → security → chaos)
+   - Use test-specific configurations and ports
+   - Maintain isolation between test types
+   - Clean up between test category transitions
+
+3. **Generate comprehensive test report with coverage metrics**
+   - Include server startup/shutdown logs
+   - Report port usage and conflicts (if any)
+   - Provide detailed failure analysis with server states
+
+4. **Auto-retry failed tests once with different conditions**
+   - Retry with fresh server instances
+   - Use alternative ports if conflicts detected
+   - Clean environment completely between retries
+
+5. **Complete cleanup after all tests**
+   - Stop all test servers gracefully
+   - Clean up test ports and processes
+   - Remove temporary test files and configurations
+
+6. **Decision point**
+   - Only proceed to `/ship` if ALL test categories pass
+   - If tests fail after retry, provide detailed failure analysis including server logs and return to `/build`

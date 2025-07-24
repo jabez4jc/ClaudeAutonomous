@@ -83,6 +83,7 @@ A streamlined, autonomous development workflow where AI agents prioritize **deep
 | `/plan-continue` | Continue planning | Generate remaining tasks from analysis summaries |
 | `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates, MCP enhanced |
 | `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry, MCP enhanced |
+| `/dev` | **Development server management** | **Unified start/stop for frontend + backend with automatic port cleanup** |
 | `/ship` | Production deployment | Monitoring, rollback, documentation, MCP enhanced |
 | `/auto` | **Feedback-driven workflow** | **Task execution with human checkpoints (2-3 per task)** |
 | `/auto --interactive` | **Interactive frontend development** | **High-frequency feedback with visual previews (4-6 per task)** |
@@ -565,14 +566,20 @@ tasks/backlog/ → tasks/in-progress/ → tasks/testing/ → tasks/completed/
 ## 🚦 Quick Commands
 
 ```bash
-# Check project status with task counts
+# Development server management (single command for full-stack)
+/dev start              # Start frontend + backend + services
+/dev stop               # Stop all development servers
+/dev status             # Show running services and ports
+/dev logs               # Combined logs from all services
+
+# Project status and monitoring
 cat ./.claude/project_status.json
-
-# Monitor autonomous workflow progress
 tail -f ./.claude/logs/autonomous-workflow.log
-
-# View task distribution across folders
 find tasks/ -name "*.md" | sort
+
+# Manual testing after build completion
+/dev start              # Single command starts entire development environment
+# Access at: http://localhost:3000 (frontend) + http://localhost:8000/docs (backend API)
 
 # Test alert system
 ./.claude/hooks/user-attention-alert.sh complete "Test message"
