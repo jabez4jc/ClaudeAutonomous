@@ -1,0 +1,62 @@
+{
+  "context_management": {
+    "enabled": true,
+    "proactive_monitoring": true,
+    "auto_pruning": true,
+    "thresholds": {
+      "green_zone": 60,
+      "yellow_zone": 80,
+      "orange_zone": 90,
+      "red_zone": 95
+    },
+    "pruning_strategy": "task_aware",
+    "snapshot_triggers": [
+      "before_new_task",
+      "before_major_refactor", 
+      "after_milestone_completion",
+      "before_context_pruning",
+      "when_switching_features"
+    ],
+    "retention_policy": {
+      "high_priority_always": [
+        "current_task_details",
+        "active_file_modifications",
+        "recent_errors_and_debugging",
+        "user_feedback_history",
+        "project_requirements"
+      ],
+      "medium_priority_selective": [
+        "related_task_context",
+        "recent_file_reads",
+        "dependency_information",
+        "test_results",
+        "architectural_decisions"
+      ],
+      "low_priority_prunable": [
+        "historical_conversation",
+        "exploratory_file_reads",
+        "completed_task_details",
+        "general_documentation",
+        "status_queries"
+      ]
+    },
+    "compression_rules": {
+      "file_context": "summarize_to_key_functionality",
+      "conversation": "extract_decisions_and_feedback",
+      "documentation": "compress_to_relevant_summaries",
+      "error_logs": "keep_recent_and_unresolved"
+    }
+  },
+  "automatic_snapshots": {
+    "max_snapshots_per_task": 5,
+    "retention_days": 30,
+    "compression_after_days": 7,
+    "naming_convention": "task-{task_id}-{timestamp}"
+  },
+  "context_restoration": {
+    "similarity_threshold": 0.7,
+    "max_restore_size": "40%",
+    "prioritize_recent": true,
+    "include_related_tasks": true
+  }
+}

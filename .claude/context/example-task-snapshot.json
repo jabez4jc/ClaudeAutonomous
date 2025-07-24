@@ -1,0 +1,160 @@
+{
+  "context_snapshot": {
+    "metadata": {
+      "task_id": "task-001-user-auth",
+      "task_title": "Implement JWT authentication API",
+      "snapshot_type": "before_context_pruning",
+      "timestamp": "2025-07-24T10:30:00Z",
+      "context_usage_before": "85%",
+      "context_usage_after": "45%",
+      "ai_session_id": "session-20250724-auth-work"
+    },
+    
+    "high_priority_context": {
+      "current_task": {
+        "title": "Implement JWT authentication API",
+        "description": "Create secure JWT-based authentication with refresh tokens",
+        "progress": "implementing login endpoint",
+        "phase": "build",
+        "success_criteria": [
+          "JWT tokens generated and validated",
+          "Login/logout endpoints working",
+          "Refresh token rotation implemented",
+          "Security tests passing"
+        ],
+        "current_blockers": ["JWT token validation failing in middleware"],
+        "user_feedback": [
+          "approved API design on 2025-07-24 09:15",
+          "requested 2FA support for admin users",
+          "confirmed bcrypt for password hashing"
+        ]
+      },
+      
+      "active_files": {
+        "src/auth.py": {
+          "status": "currently_modifying",
+          "purpose": "JWT authentication implementation",
+          "key_functions": ["login", "logout", "validate_token", "refresh_token"],
+          "current_issue": "token validation middleware returning 401",
+          "last_modified": "2025-07-24T10:25:00Z"
+        },
+        "src/models.py": {
+          "status": "recently_modified", 
+          "purpose": "User model with authentication fields",
+          "changes": ["added refresh_token field", "updated password hashing"],
+          "dependencies": ["sqlalchemy", "bcrypt"]
+        },
+        "tests/test_auth.py": {
+          "status": "being_written",
+          "purpose": "Authentication test suite", 
+          "coverage": "60% complete",
+          "failing_tests": ["test_token_validation"]
+        }
+      },
+      
+      "debugging_context": {
+        "current_error": "JWT token validation returning 401 Unauthorized",
+        "error_location": "src/auth.py:45 - validate_token function",
+        "attempted_fixes": [
+          "checked token format",
+          "verified secret key",
+          "tested token decoding manually"
+        ],
+        "next_debugging_step": "check middleware token extraction"
+      },
+      
+      "project_constraints": {
+        "tech_stack": "FastAPI + SQLAlchemy + PostgreSQL + Redis",
+        "security_requirements": "OWASP compliance, JWT with refresh tokens",
+        "authentication_spec": "JWT access tokens (15min) + refresh tokens (7days)",
+        "database_schema": "users table with email, password_hash, refresh_token"
+      }
+    },
+    
+    "medium_priority_context": {
+      "related_tasks": [
+        {
+          "task_id": "task-002-user-profile",
+          "title": "User profile management",
+          "dependency": "requires authentication to be complete",
+          "estimated_start": "2025-07-24T14:00:00Z"
+        },
+        {
+          "task_id": "task-003-permissions",
+          "title": "Role-based access control",
+          "dependency": "extends authentication system"
+        }
+      ],
+      
+      "architectural_decisions": [
+        "chose JWT over session-based auth for API scalability",
+        "using Redis for refresh token storage and blacklisting",
+        "bcrypt with 12 rounds for password hashing",
+        "separate endpoints for admin 2FA vs regular user auth"
+      ],
+      
+      "dependency_context": {
+        "redis": {
+          "purpose": "refresh token storage and blacklisting",
+          "configuration": "localhost:6379, no auth in dev",
+          "key_patterns": ["refresh_tokens:{user_id}", "blacklist:{token}"]
+        },
+        "sendgrid": {
+          "purpose": "2FA email sending",
+          "status": "configured but not yet implemented",
+          "api_key": "stored in environment variables"
+        }
+      },
+      
+      "test_results": {
+        "unit_tests": "8/12 passing",
+        "integration_tests": "not yet run",
+        "coverage": "65% on auth module",
+        "performance": "login endpoint: 150ms average response time"
+      }
+    },
+    
+    "prunable_context": {
+      "completed_tasks": [
+        {
+          "task_id": "task-000-project-setup",
+          "completed": "2025-07-23T16:00:00Z",
+          "summary": "FastAPI project structure created, dependencies installed"
+        }
+      ],
+      
+      "exploratory_reads": [
+        {
+          "file": "docs/api-examples.md",
+          "purpose": "understanding API patterns",
+          "relevance": "low - general examples only"
+        },
+        {
+          "file": "README.md",
+          "purpose": "project overview", 
+          "relevance": "low - initial orientation"
+        }
+      ],
+      
+      "old_conversation": [
+        "discussed project setup 2 hours ago",
+        "explored different auth libraries 1 hour ago",
+        "status queries and general questions"
+      ],
+      
+      "documentation_reads": [
+        "FastAPI security documentation",
+        "JWT specification reading",
+        "SQLAlchemy relationship patterns"
+      ]
+    }
+  },
+  
+  "context_restoration_index": {
+    "keywords": ["jwt", "authentication", "login", "token", "auth", "security"],
+    "file_associations": ["src/auth.py", "src/models.py", "tests/test_auth.py"],
+    "feature_area": "authentication",
+    "related_snapshots": [],
+    "restoration_priority": "high"
+  }
+}

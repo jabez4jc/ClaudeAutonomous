@@ -249,11 +249,57 @@ The workflow includes a helper script for continuous operation:
 .claude/scripts/continuous-auto.sh --continuous
 ```
 
+## Context Management Integration
+
+### Automatic Context Optimization
+The `/auto` command now includes intelligent context management:
+
+**Proactive Context Monitoring**:
+- **Green Zone (0-60%)**: Full context maintained for optimal AI performance
+- **Yellow Zone (60-80%)**: Selective pruning of low-priority content
+- **Orange Zone (80-90%)**: Aggressive pruning, preserve only task-critical context
+- **Red Zone (90%+)**: Emergency context preservation and intelligent reset
+
+**Context-Aware Task Execution**:
+```bash
+/auto --context-aware "implement user dashboard"
+# AI automatically:
+# 1. Creates context snapshot before starting
+# 2. Monitors context usage during development  
+# 3. Prunes non-dashboard content as needed
+# 4. Preserves all dashboard decisions and code context
+# 5. Restores relevant context when switching tasks
+```
+
+### Task-Specific Context Snapshots
+Automatic snapshots are created at key points:
+- **Before starting new tasks** (preserve previous context)
+- **After completing milestones** (preserve decision context)
+- **Before major refactoring** (preserve pre-change state)
+- **When context reaches 80%** (safety backup)
+- **When switching between features** (enable seamless transitions)
+
+### Context Restoration
+```bash
+# AI automatically restores relevant context when:
+/auto "continue user authentication work"
+# Loads: previous auth context, file modifications, user feedback, debugging state
+
+/auto "fix login endpoint bug"  
+# Loads: authentication context, error history, test results, related code
+```
+
 ## Status Monitoring
 ```bash
+# Enhanced monitoring with context awareness
 cat ./.claude/project_status.json
 tail -f ./.claude/logs/autonomous-workflow.log
 find tasks/ -name "*.md" | sort
+
+# Context-specific monitoring
+/context status                 # Current context usage and health
+/context snapshots             # Available context snapshots for restoration
+tail -f ./.claude/context/context-management.log  # Context optimization log
 ```
 
 ## Expected Behavior

@@ -467,5 +467,19 @@
       "pnpm add -g",
       "pnpm install -g"
     ]
+  },
+  "context_management": {
+    "enabled": true,
+    "proactive_monitoring": true,
+    "auto_pruning_threshold": 60,
+    "emergency_threshold": 90,
+    "context_directory": ".claude/context",
+    "max_context_snapshots": 10,
+    "relevance_scoring": "task_aware",
+    "auto_snapshot_triggers": [
+      "before_new_task",
+      "after_milestone",
+      "before_context_reset"
+    ]
   }
 }

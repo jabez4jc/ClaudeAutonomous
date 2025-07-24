@@ -84,6 +84,7 @@ A streamlined, autonomous development workflow where AI agents prioritize **deep
 | `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates, MCP enhanced |
 | `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry, MCP enhanced |
 | `/dev` | **Development server management** | **Unified start/stop for frontend + backend with automatic port cleanup** |
+| `/context` | **Intelligent context management** | **Proactive context optimization and task-aware memory** |
 | `/ship` | Production deployment | Monitoring, rollback, documentation, MCP enhanced |
 | `/auto` | **Feedback-driven workflow** | **Task execution with human checkpoints (2-3 per task)** |
 | `/auto --interactive` | **Interactive frontend development** | **High-frequency feedback with visual previews (4-6 per task)** |
@@ -588,6 +589,56 @@ find tasks/ -name "*.md" | sort
 ./.claude/scripts/continuous-auto.sh --continuous
 ```
 
+## 🧠 Intelligent Context Management
+
+### The Context Window Problem
+Traditional AI workflows suffer from degraded performance as context fills up. The `/compact` command is reactive and loses critical task context.
+
+### Proactive Context Optimization  
+**Smart Context Zones**:
+- **Green (0-60%)**: Full context, optimal AI performance
+- **Yellow (60-80%)**: Selective pruning of low-priority content  
+- **Orange (80-90%)**: Aggressive pruning, keep only task-critical context
+- **Red (90%+)**: Emergency preservation and intelligent reset
+
+### Task-Aware Memory Management
+```bash
+# Automatic context optimization (enabled by default)
+/context auto
+
+# Task-specific context snapshots  
+/context save "implementing user authentication"
+/context restore "user authentication"
+
+# Context-aware task execution
+/auto --context-aware "build shopping cart feature"
+```
+
+### Intelligent Context Preservation
+**High Priority (Always Kept)**:
+- Current task details and progress
+- Active file modifications and errors  
+- Recent user feedback and decisions
+- Project requirements and constraints
+
+**Medium Priority (Selectively Kept)**:
+- Related task context and dependencies
+- Recent code understanding and test results
+- Architectural decisions and configurations
+
+**Low Priority (First to Prune)**:
+- Historical conversation and completed tasks
+- Exploratory file reads and documentation
+- Status queries and general information
+
+### Automatic Context Snapshots
+Context is automatically saved at key moments:
+- Before starting new tasks
+- After completing milestones  
+- Before major refactoring
+- When context reaches 80% usage
+- When switching between features
+
 ## 🛠️ Advanced Features
 
 ### Autonomous Orchestration
@@ -595,6 +646,7 @@ find tasks/ -name "*.md" | sort
 - **Intelligent Retry**: Build failures (3 attempts), test failures (2 attempts)
 - **Dependency Awareness**: Respects task dependencies automatically
 - **Progress Tracking**: Comprehensive logging and status monitoring
+- **Context Optimization**: Maintains optimal AI performance throughout long sessions
 
 ### Blocker Resolution
 Automatically resolves:

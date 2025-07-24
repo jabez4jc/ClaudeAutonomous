@@ -115,6 +115,31 @@ All AI agents must follow these process management rules:
 - **`/auto --interactive`**: Start servers for live preview and feedback
 - **`/dev` command**: Manual control for human testing and development
 
+### Context Window Management (Critical)
+All AI agents must implement intelligent context management:
+
+**Proactive Context Monitoring**:
+- Monitor context usage continuously (not reactively)
+- Intervene at 60% threshold (Yellow Zone) with selective pruning
+- Emergency context preservation at 90% threshold (Red Zone)
+- Create task-specific snapshots before major operations
+
+**Context Preservation Priority**:
+1. **High Priority**: Current task, active files, user feedback, debugging context
+2. **Medium Priority**: Related tasks, architectural decisions, test results
+3. **Low Priority**: Completed tasks, exploration, historical conversation
+
+**Automatic Context Snapshots**:
+- Before starting new tasks (preserve previous context)
+- After completing milestones (preserve decisions)
+- Before major refactoring (preserve pre-change state)
+- When switching features (enable seamless transitions)
+
+**Context Restoration**:
+- Automatically restore relevant context when continuing work
+- Use task keywords and file associations for smart matching
+- Prioritize recent and related context over historical data
+
 ## Project Structure
 
 ```
