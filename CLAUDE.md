@@ -45,11 +45,37 @@ Understand → Plan → Build → Test → (Retry if needed) → Ship
 - **Granular Breakdown**: Every task <4 hours, highly actionable and testable
 
 ### Test-Driven Development (Mandatory)
-1. **Red Phase**: Write failing tests first
-2. **Green Phase**: Implement minimal code to pass tests  
-3. **Refactor Phase**: Improve code while keeping tests green
-4. **Coverage**: Maintain >90% test coverage
-5. **Auto-retry**: Failed tests trigger build phase fixes
+
+#### Test Creation During `/build` Phase
+1. **Unit Tests (Red Phase)**: Write failing tests BEFORE implementing each function/method
+   - Location: `tests/unit/` 
+   - Purpose: Test individual functions in isolation
+   - When: Immediately before implementing each component
+
+2. **Integration Tests (Green Phase)**: Create DURING implementation of component interactions
+   - Location: `tests/integration/`
+   - Purpose: Test API endpoints, database operations, service interactions
+   - When: As you implement APIs, database queries, external service calls
+
+3. **E2E Tests (Refactor Phase)**: Create AFTER core functionality is complete
+   - Location: `tests/e2e/`
+   - Purpose: Test complete user workflows and system behavior
+   - When: Before moving from `/build` to `/test` phase
+
+4. **Performance Tests (Optimization Phase)**: Create AFTER basic functionality works
+   - Location: `tests/performance/`
+   - Purpose: Load testing, response time validation, resource usage
+   - When: During performance optimization phase
+
+#### Test Execution During `/test` Phase (Required Order)
+1. **Unit Tests** → Fix logic issues (>90% coverage required)
+2. **Integration Tests** → Fix component interactions (>80% coverage required)  
+3. **E2E Tests** → Fix user experience issues (100% critical paths required)
+4. **Performance Tests** → Optimize performance (<200ms response times required)
+5. **Security Tests** → Fix vulnerabilities (no critical issues allowed)
+6. **Chaos Tests** → Implement resilience (auto-recovery required)
+
+All tests must pass in sequence before proceeding to `/ship` phase.
 
 ### Automatic Blocker Resolution
 Before build phase, automatically:
@@ -78,10 +104,12 @@ your-project/
 │   └── completed/      # Fully verified
 ├── src/                # Source code (varies by type)
 ├── tests/              # Comprehensive test suites
-│   ├── unit/           # >90% coverage
-│   ├── integration/    # API/component tests
-│   ├── e2e/            # End-to-end workflows
-│   └── performance/    # Load and performance tests
+│   ├── unit/           # >90% coverage, individual functions
+│   ├── integration/    # API/component interactions
+│   ├── e2e/            # Complete user workflows
+│   ├── performance/    # Load testing, response times
+│   ├── security/       # Vulnerability scanning, auth testing
+│   └── resilience/     # Chaos testing, auto-recovery
 ├── .env.example        # Environment configuration template
 └── .claude/
     ├── commands/       # Slash command definitions
@@ -171,11 +199,26 @@ cp api-spec.yaml docs/design/api-specs/
 
 ## Quality Standards
 
-- **>90% test coverage** with comprehensive edge case testing
-- **Security validation** on all inputs and dependencies
-- **Performance benchmarks** must pass
-- **TDD methodology** strictly enforced
+### Test Coverage Requirements
+- **Unit Tests**: >90% line coverage, >85% branch coverage (all public functions, edge cases, error conditions)
+- **Integration Tests**: >80% coverage of integration points (API endpoints, database operations, service interactions)
+- **E2E Tests**: 100% coverage of critical user journeys (authentication flows, data persistence, complete workflows)
+- **Performance Tests**: All high-traffic endpoints (<200ms response times, expected load handling)
+- **Security Tests**: All input points, authentication, authorization (OWASP Top 10 compliance)
+- **Chaos Tests**: All failure scenarios, recovery mechanisms (auto-recovery, graceful degradation)
+
+### Quality Gates (Must Pass in Order)
+1. ✅ **Unit Tests**: >90% coverage, all pass, fast execution (<30s)
+2. ✅ **Integration Tests**: >80% coverage, all endpoints work, database operations succeed  
+3. ✅ **E2E Tests**: 100% critical paths pass, UI interactions work, data persists
+4. ✅ **Performance Tests**: Response times <200ms, handles expected load, no memory leaks
+5. ✅ **Security Tests**: No critical vulnerabilities, auth secure, inputs validated
+6. ✅ **Chaos Tests**: Auto-recovery works, graceful degradation, no data loss
+
+### Additional Standards
+- **TDD methodology** strictly enforced (Red-Green-Refactor cycle)
 - **Blocker resolution** before implementation begins
+- **Security validation** on all inputs and dependencies
 
 ## Autonomous Features
 
