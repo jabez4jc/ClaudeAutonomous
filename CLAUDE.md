@@ -115,17 +115,29 @@ Every task must include:
 3. **Refactor**: Improve while keeping tests green
 ```
 
-## Auto-Approved Commands
+## Auto-Approved Commands & Dependency Management
 
-These commands run without confirmation for autonomous development:
+### Project-Isolated Dependencies (Required)
+**All application dependencies MUST be contained within the project directory. No global installations.**
 
-**Package Managers**: `npm`, `npx`, `uv`, `pip`, `yarn`
+**Python**: Use Astral UV exclusively
+- `uv add package-name` (✅ auto-approved)
+- `uv run python script.py` (✅ auto-approved)
+- `pip install package-name` (❌ requires approval - global installation)
+
+**Node.js**: Use pnpm/yarn/npm locally only
+- `pnpm add package-name` (✅ auto-approved)
+- `npm install package-name` (✅ auto-approved)
+- `npm install -g package-name` (❌ requires approval - global installation)
+
+### Auto-Approved Commands
+**Package Managers (Local)**: `uv add`, `uv run`, `pnpm add`, `yarn add`, `npm install`, `npx`
 **Development**: `python`, `node`, `go`, `tsc`, `pytest`, `jest`
 **Version Control**: `git status`, `git add`, `git commit`, `git diff`
 **File Operations**: `mkdir`, `touch`, `cp`, `mv`, `chmod`
 **Utilities**: `curl`, `echo`, `cat`, `grep`, `find`, `ls`
 
-**Excluded (Require Approval)**: `sudo`, `rm -rf`, `npm publish`, system packages
+**Require Approval (Global/System)**: `pip install`, `npm install -g`, `yarn global add`, `sudo pip`, system packages
 
 ## Documentation & Requirements
 

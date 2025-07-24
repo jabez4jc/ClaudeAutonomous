@@ -147,16 +147,46 @@ This workflow is enhanced with 9 essential MCP servers for autonomous developmen
 /setup-mcp  # Installs all 9 MCP servers automatically
 ```
 
-## 🔧 Auto-Approved Commands
+## 🔧 Dependency Management & Auto-Approved Commands
 
-These commands run without confirmation for autonomous development:
+### 📦 Project-Isolated Dependencies (Required)
+**All application dependencies MUST be contained within the project directory. No global installations.**
 
-- **Package Managers**: `npm`, `npx`, `uv`, `pip`, `yarn`
+#### Python Backend - Use Astral UV
+```bash
+# ✅ Auto-approved (project-isolated)
+uv add fastapi uvicorn          # Add runtime dependencies
+uv add --dev pytest black      # Add development dependencies  
+uv run python main.py          # Run in isolated environment
+uv sync                         # Install all dependencies
+
+# ❌ Requires approval (global/system)
+pip install fastapi            # Global installation
+sudo pip install package      # System-level installation
+```
+
+#### Frontend - Use Local Package Managers
+```bash
+# ✅ Auto-approved (project-local)
+pnpm add react typescript      # Preferred: fastest package manager
+yarn add react typescript     # Alternative: good performance
+npm install react typescript  # Fallback: widely supported
+npx create-next-app           # Run tools from local packages
+
+# ❌ Requires approval (global)
+npm install -g typescript     # Global installation
+yarn global add package       # Global installation
+```
+
+### Auto-Approved Commands
+- **Package Managers (Local)**: `uv add`, `uv run`, `pnpm add`, `yarn add`, `npm install`, `npx`
 - **Development**: `python`, `node`, `go`, `tsc`, `pytest`, `jest`
 - **Version Control**: `git status`, `git add`, `git commit`, `git diff`
 - **File Operations**: `mkdir`, `touch`, `cp`, `mv`, `chmod`
 - **Utilities**: `curl`, `echo`, `cat`, `grep`, `find`, `ls`
 - **Servers**: `uvicorn`, `gunicorn`, `flask run`
+
+See `docs/guidelines/dependency-management.md` for comprehensive guidelines.
 
 ## 📋 Adding Requirements & Specifications
 
