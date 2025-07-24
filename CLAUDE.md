@@ -26,8 +26,10 @@ Emphasize **deep thinking**, **prevention over fixing**, and **autonomous execut
 | `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates, MCP enhanced |
 | `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry, MCP enhanced |
 | `/ship` | Production deployment | Monitoring, rollback, documentation, MCP enhanced |
-| `/auto` | **Fully autonomous workflow** | **Complete end-to-end solution with MCP integration** |
-| `/auto --continuous` | **Continuous autonomous execution** | **Process entire backlog with automatic task progression** |
+| `/auto` | **Feedback-driven workflow** | **Task execution with human checkpoints and validation** |
+| `/auto --interactive` | **Interactive frontend development** | **High-frequency feedback with visual previews for UI work** |
+| `/auto --continuous` | **Smart continuous execution** | **Context-adaptive feedback based on task type** |
+| `/auto --silent` | **Fully autonomous workflow** | **Zero-interruption execution for utilities and infrastructure** |
 
 ## Workflow Process
 

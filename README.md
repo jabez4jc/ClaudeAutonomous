@@ -10,15 +10,17 @@ A streamlined, autonomous development workflow where AI agents prioritize **deep
 # 1. Setup MCP servers (one-time)
 /setup-mcp
 
-# 2. Complete planning + continuous autonomous development
-/plan --complete
-/auto --continuous
+# 2. Feedback-driven development (recommended)
+/plan --complete         # Create all tasks upfront
+/auto --interactive      # Interactive mode for frontend tasks  
+/auto                    # Default mode for backend tasks
+/auto --silent           # Silent mode for utilities
 
-# 3. Alternative: Iterative approach
+# 3. Smart continuous development
 /plan                    # Initial planning (3-5 primary tasks)
-/auto                    # Work on first tasks
-/plan-continue           # Generate remaining tasks
-/auto --continuous       # Process entire backlog
+/auto --continuous       # Processes backlog with appropriate feedback modes
+/plan-continue           # Generate remaining tasks from summaries
+/auto --continuous       # Continue with smart feedback adaptation
 
 # 4. Step-by-step approach
 /project  # Initialize with 15+ app types
@@ -82,8 +84,10 @@ A streamlined, autonomous development workflow where AI agents prioritize **deep
 | `/build` | TDD implementation | Red-Green-Refactor, auto-approval, quality gates, MCP enhanced |
 | `/test` | Comprehensive validation | 90%+ coverage, security, performance, auto-retry, MCP enhanced |
 | `/ship` | Production deployment | Monitoring, rollback, documentation, MCP enhanced |
-| `/auto` | **Fully autonomous workflow** | **Complete end-to-end solution with MCP integration** |
-| `/auto --continuous` | **Continuous autonomous execution** | **Process entire backlog with automatic task progression** |
+| `/auto` | **Feedback-driven workflow** | **Task execution with human checkpoints (2-3 per task)** |
+| `/auto --interactive` | **Interactive frontend development** | **High-frequency feedback with visual previews (4-6 per task)** |
+| `/auto --continuous` | **Smart continuous execution** | **Process entire backlog with context-appropriate feedback** |
+| `/auto --silent` | **Fully autonomous workflow** | **Zero-interruption execution for utilities and infrastructure** |
 
 ## 📁 Enhanced Project Structure
 
@@ -470,6 +474,53 @@ Automatic audio/visual alerts when:
 
 ## 🔄 Enhanced Workflow Options
 
+### Feedback-Driven Development Modes
+
+#### Interactive Mode (`/auto --interactive`) - Frontend Focus
+**Best For**: UI components, pages, styling, user interactions, design-heavy tasks
+**Feedback Frequency**: 4-6 checkpoints per task
+**Includes**: 
+- Live preview generation and screenshots
+- Design mockup comparisons  
+- Accessibility testing results
+- Cross-browser compatibility checks
+- Real-time style guide compliance
+
+```bash
+/auto --interactive "Create responsive product catalog with filters"
+# Checkpoints: Component structure → Layout design → Filter functionality → Mobile responsive → Final review
+```
+
+#### Default Mode (`/auto`) - Balanced Approach  
+**Best For**: General development, APIs, business logic, mixed frontend/backend
+**Feedback Frequency**: 2-3 checkpoints per task
+**Includes**:
+- Implementation approach approval
+- Functional testing and validation
+- Security and performance review
+
+```bash
+/auto "Implement user authentication with JWT tokens"
+# Checkpoints: API design approval → Implementation demo → Security audit
+```
+
+#### Continuous Mode (`/auto --continuous`) - Smart Automation
+**Best For**: Processing entire backlog with minimal interruption
+**Feedback Frequency**: Context-adaptive (automatically switches modes)
+**Includes**:
+- Automatic mode selection based on task type
+- Interactive mode for frontend tasks
+- Default mode for mixed tasks  
+- Silent mode for utilities
+
+#### Silent Mode (`/auto --silent`) - Full Automation
+**Best For**: Utilities, tests, documentation, refactoring, infrastructure
+**Feedback Frequency**: Final review only
+**Includes**:
+- Comprehensive automated testing
+- Extra validation and quality checks
+- Detailed completion reports
+
 ### Planning Approaches
 
 #### Complete Planning (All Tasks Upfront)
@@ -494,9 +545,21 @@ tasks/backlog/ → tasks/in-progress/ → tasks/testing/ → tasks/completed/
 
 ### Autonomous Execution Options
 ```bash
-/auto                    # Process single task, then stop
-/auto --continuous       # Process entire backlog sequentially  
-/auto "specific task"    # Execute specific task description
+# Feedback-driven development (recommended for most tasks)
+/auto                    # Single task with 2-3 human checkpoints
+/auto "specific task"    # Execute specific task with feedback
+
+# Frontend development (high-frequency feedback)  
+/auto --interactive      # 4-6 checkpoints with visual previews
+/auto --interactive "Create user dashboard with charts"
+
+# Smart continuous processing
+/auto --continuous       # Entire backlog with context-appropriate feedback
+                        # (Automatically uses interactive mode for frontend tasks)
+
+# Zero-interruption automation
+/auto --silent          # Fully autonomous for utilities/infrastructure
+/auto --silent "Add unit tests for authentication module"
 ```
 
 ## 🚦 Quick Commands
