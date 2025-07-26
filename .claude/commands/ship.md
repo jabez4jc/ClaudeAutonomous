@@ -1,33 +1,52 @@
-# /ship - Deployment Agent
+# /ship - Deploy to Production
 
-"Ultra Think before you build" - Deploy thoughtfully planned and tested solutions with reliability, monitoring, and rollback capability.
+Deploy completed features to production.
 
-## Pre-Deployment
-```bash
-# Verify: make test || npm test || go test ./...
-# Security scan, build artifacts
-```
+## What It Does
 
-## Deployment Options
-**Container**: Dockerfile with dependencies and CMD
-**Cloud Functions**: Package, configure triggers, environment variables
-**Server**: Build artifact, transfer, migrate, restart
+- Builds production assets
+- Runs final quality checks
+- Deploys to production environment
+- Monitors deployment health
+
+## Pre-Deployment Checks
+
+- All tests passing
+- Security scan clean
+- Performance benchmarks met
+- Documentation updated
+
+## Deployment Process
+
+1. **Build**: Create production assets
+2. **Test**: Run final integration tests
+3. **Deploy**: Push to production
+4. **Verify**: Health checks and monitoring
+5. **Rollback**: Automatic rollback if issues detected
 
 ## Monitoring
-**Health Check**: `/health` endpoint with status/version/timestamp
-**Metrics**: Response times, error rates, resource usage, business KPIs
 
-## Documentation
-Update README, API docs, changelog, configuration before shipping
+- Application health checks
+- Performance monitoring
+- Error tracking
+- User experience metrics
 
-## Rollback Plan
-Monitoring alerts → Switch to previous version → Investigate → Fix → Redeploy
+## Rollback
 
-## Post-Deployment
-Verify health checks, monitor errors, update task status, generate report
+- Automatic rollback on critical failures
+- Manual rollback capability
+- Database migration rollback
+- Traffic switching
 
-## MCP Integration
-**GitHub MCP**: Release creation, deployment triggers, CI/CD monitoring
-**Notion MCP**: Documentation updates, deployment logs
-**Memory Bank MCP**: Store deployment insights and lessons learned
-**Context7 MCP**: Deployment platform documentation and best practices
+## Integration
+
+- Runs after successful `/test`
+- Updates deployment status
+- Notifies team of deployment
+
+## Output
+
+- Deployment status
+- Performance metrics
+- Health check results
+- Access URLs for deployed features

@@ -1,193 +1,134 @@
-# /build - Implementation Agent
+# /build - Perfect Implementation
 
-Implement solutions with craftsmanship: thoughtful, clear, tested, secure, elegant.
+"Build to perfection with zero hallucinations" - Implement every feature exactly as specified with complete adherence to requirements and guidelines.
 
-## Philosophy
-"Ultra Think before you build and you won't break anything" - Thoughtful implementation of well-analyzed plans.
+## Zero-Hallucination Implementation
 
-**Process**: Deep thinking → Test-first implementation → Validation → If fixes needed, think through root cause before implementing
+### 1. MCP-Enhanced Requirement Verification
+- **MCP Server Check**: Verify all essential MCP servers are active and ready
+- **Context7 Documentation**: Access up-to-date framework docs and best practices
+- **Serena Codebase Analysis**: Analyze existing code patterns and architecture
+- **Exact Specification Review**: Read and understand EVERY requirement detail
+- **Guideline Confirmation**: Verify all provided guidelines are identified and understood
+- **Template Analysis**: Analyze all templates and design documents for exact compliance
+- **shadcn-ui Component Review**: Check available components for implementation
+- **Dependency Validation**: Confirm all dependencies are available and correctly understood
 
-## Test-Driven Development Process (Required)
+### 2. MCP-Enhanced Perfect Implementation Process
+1. **Requirements Alignment**: Implement ONLY what is specified - no assumptions
+2. **MCP-Powered Implementation**:
+   - **Desktop Commander**: Advanced file operations and project setup
+   - **shadcn-ui**: Use exact components matching design specifications
+   - **Context7**: Real-time framework documentation lookup
+   - **Serena**: Maintain consistency with existing codebase patterns
+3. **Guideline Adherence**: Follow provided guidelines exactly - no creative interpretation
+4. **Template Compliance**: Match templates pixel-perfect - no design deviations
+5. **Dependency Integration**: Use dependencies exactly as specified - no substitutions
 
-### 1. Unit Tests (Create FIRST during build)
-**When**: Immediately before implementing each function/method
-**Location**: `tests/unit/`
-**Purpose**: Test individual functions and classes in isolation
+### 3. MCP-Enhanced Test-Driven Perfection
+1. **Specification Tests**: Write tests that validate exact requirement compliance
+2. **Guideline Tests**: Write tests that enforce guideline adherence
+3. **Template Tests**: Write tests that verify template compliance
+4. **Playwright UI Tests**: Automated browser-based testing for user interfaces
+5. **Integration Tests**: Write tests that validate dependency integration
+6. **Component Tests**: Verify shadcn-ui components function as expected
 
-```bash
-# Python
-mkdir -p tests/unit
-# Create tests/unit/test_[module_name].py for each source module
-uv run pytest tests/unit/ -v
+## Implementation Standards
 
-# Node.js
-mkdir -p tests/unit  
-# Create tests/unit/[module_name].test.js for each source module
-npm run test:unit
+### Frontend Implementation
+- **Pixel-Perfect UI**: Match provided designs exactly - no visual deviations
+- **Exact Component Structure**: Follow provided templates precisely
+- **Guideline Compliance**: Adhere to all frontend guidelines strictly
+- **Interaction Fidelity**: Implement interactions exactly as specified
+
+### Backend Implementation  
+- **API Specification Adherence**: Match provided API docs exactly
+- **Architecture Compliance**: Follow provided patterns precisely
+- **Data Model Accuracy**: Implement schemas exactly as specified
+- **Error Handling Consistency**: Follow provided error handling patterns
+
+### Database Implementation
+- **Schema Precision**: Match provided database designs exactly
+- **Naming Convention Adherence**: Follow provided naming standards strictly
+- **Relationship Accuracy**: Implement relationships exactly as specified
+- **Constraint Compliance**: Apply all specified constraints precisely
+
+## Anti-Hallucination Safeguards
+
+### Pre-Implementation Verification
+- [ ] **Requirements Document Read**: Every requirement understood completely
+- [ ] **Guidelines Identified**: All provided guidelines documented and understood
+- [ ] **Templates Analyzed**: All design templates and patterns identified
+- [ ] **Dependencies Confirmed**: All required dependencies available and understood
+- [ ] **Specification Gaps**: No ambiguities or interpretation needed
+
+### During Implementation Checks
+- [ ] **Specification Adherence**: Implementation matches requirements exactly
+- [ ] **Guideline Compliance**: Following all provided guidelines strictly
+- [ ] **Template Fidelity**: UI/UX matches provided designs pixel-perfect
+- [ ] **Pattern Consistency**: Using specified patterns and architectures only
+- [ ] **No Assumptions**: Zero creative interpretation or assumptions made
+
+### Post-Implementation Validation
+- [ ] **Requirement Traceability**: Every requirement implemented without gaps
+- [ ] **Guideline Verification**: All guidelines followed without deviation
+- [ ] **Template Compliance**: Design implementation matches exactly
+- [ ] **Integration Accuracy**: Dependencies integrated as specified
+- [ ] **Zero Hallucination Confirmation**: No features or behaviors added beyond specification
+
+## Quality Gates (Must Pass)
+
+1. **Perfect Specification Match**: Implementation matches requirements 100%
+2. **Complete Guideline Adherence**: All provided guidelines followed exactly
+3. **Template Compliance**: Design templates matched pixel-perfect
+4. **Comprehensive Testing**: All tests pass with >90% coverage
+5. **Security Validation**: No vulnerabilities introduced
+6. **Performance Standards**: Meets all specified performance requirements
+
+## Error Handling Philosophy
+
+- **Specification-Based Errors**: Handle only errors specified in requirements
+- **Guideline-Compliant Handling**: Follow provided error handling patterns exactly
+- **Template-Consistent UX**: Error states match provided design templates
+- **Zero Creative Solutions**: No error handling beyond what's specified
+
+## Dynamic Planning During Build
+
+### Bug-Driven Task Creation
+When bugs or missing dependencies are discovered during implementation:
+
+1. **Identify Missing Dependency**: Determine what prerequisite task was missed
+2. **Create Subtask**: Generate new task with proper dependency mapping
+3. **Update Plan**: Modify existing task dependencies to reflect new prerequisites
+4. **Pause Current Task**: Stop current implementation until dependencies resolved
+5. **Resume After Dependencies**: Continue only when all prerequisites completed
+
+### Plan Update Process
+```markdown
+## Bug Found: [Description]
+**Root Cause**: Missing dependency on [prerequisite]
+**Action**: Creating subtask - [New Task Name]
+**Updated Dependencies**: [Current task] now depends on [New task]
+**Implementation Pause**: Stopping current work until [New task] completed
 ```
 
-### 2. Integration Tests (Create DURING build)
-**When**: After implementing components that interact with each other
-**Location**: `tests/integration/`
-**Purpose**: Test API endpoints, database operations, service interactions
+## Anti-Example File Usage
 
-```bash
-# Python - API endpoints, database queries
-mkdir -p tests/integration
-# Create tests/integration/test_api.py, test_database.py
-uv run pytest tests/integration/ -v
+### Strict Prohibition
+- **No Example References**: Never use any example files as implementation guidance
+- **Requirements Only**: Base implementation solely on user-provided requirements
+- **Template Compliance**: Follow only user-provided templates and designs
+- **Zero Assumptions**: Do not infer patterns from example files
 
-# Node.js - API routes, service integrations
-mkdir -p tests/integration
-# Create tests/integration/api.test.js, database.test.js
-npm run test:integration
-```
+### Example File Purpose
+Example files exist **only** to guide users on requirement format - they must **never** influence planning or implementation decisions.
 
-### 3. End-to-End Tests (Create AFTER build completion)
-**When**: After complete feature implementation, before /test phase
-**Location**: `tests/e2e/`
-**Purpose**: Test complete user workflows and system behavior
+## Output Guarantees
 
-```bash
-# Python with Playwright/Selenium
-mkdir -p tests/e2e
-# Create tests/e2e/test_user_workflows.py
-uv add --dev playwright pytest-playwright
-uv run pytest tests/e2e/ -v
-
-# Node.js with Playwright/Cypress
-mkdir -p tests/e2e
-# Create tests/e2e/user-workflows.spec.js
-pnpm add -D @playwright/test
-pnpm exec playwright test
-```
-
-### 4. Performance Tests (Create AFTER core functionality)
-**When**: After basic functionality works, during optimization phase
-**Location**: `tests/performance/`
-**Purpose**: Load testing, response time validation, resource usage
-
-```bash
-# Python with locust
-mkdir -p tests/performance
-# Create tests/performance/load_test.py
-uv add --dev locust
-uv run locust -f tests/performance/load_test.py
-
-# Node.js with Artillery/k6
-mkdir -p tests/performance
-# Create tests/performance/load-test.yml
-pnpm add -D artillery
-pnpm exec artillery run tests/performance/load-test.yml
-```
-
-## Build Phase Test Creation Order
-
-### Phase 1: Pre-Implementation (Red Phase)
-1. **Create failing unit tests** for the functionality you're about to build
-2. **Set up test structure** in `tests/unit/`
-3. **Define test cases** based on task success criteria
-
-### Phase 2: During Implementation (Green Phase)
-1. **Implement minimal code** to make unit tests pass
-2. **Create integration tests** as you build API endpoints/database interactions
-3. **Add test fixtures and helpers** in `tests/fixtures/`
-
-### Phase 3: Post-Implementation (Refactor Phase)
-1. **Create E2E tests** for complete user workflows
-2. **Add performance tests** for critical paths
-3. **Implement chaos/resilience tests** in `tests/resilience/`
-
-## Standards
-**Code Quality**: Single responsibility, meaningful names, DRY, error handling, type safety
-**Test Coverage**: >90% unit, >80% integration, 100% critical paths E2E
-**Resilience**: Circuit breakers, retry logic, graceful degradation, timeouts, health checks
-**Security**: Input validation, injection prevention, authentication, environment secrets
-**MCP Integration**: File System MCP for structure, GitHub MCP for PRs, Database MCP for migrations, Context7 MCP for framework guidance
-
-## Language Setup with Testing
-**Python**: 
-```bash
-uv init && uv add fastapi sqlalchemy
-uv add --dev pytest pytest-cov pytest-asyncio playwright locust
-mkdir -p tests/{unit,integration,e2e,performance}
-```
-
-**JS/TS**: 
-```bash
-pnpm init && pnpm add express typescript
-pnpm add -D jest @playwright/test artillery vitest
-mkdir -p tests/{unit,integration,e2e,performance}
-```
-
-**Go**: 
-```bash
-go mod init && go get [packages]
-mkdir -p tests/{unit,integration,e2e,performance}
-# Go uses _test.go files alongside source code + separate test directories
-```
-
-## Kaizen Practice
-With every commit: Fix small issue, improve docs, refactor unclear code, reduce complexity
-
-## Development Server Management During Build
-
-### Automatic Process Cleanup
-Before starting any development servers during build phase:
-
-```bash
-# Kill existing dev servers to prevent port conflicts
-lsof -ti:3000,8000,5432 | xargs kill -9 2>/dev/null || true
-pkill -f "npm.*dev\|uvicorn\|flask\|gunicorn" 2>/dev/null || true
-
-# Clean up zombie processes from previous sessions
-ps aux | grep -E "(npm|node|python|uvicorn)" | grep -v grep | awk '{print $2}' | xargs kill -9 2>/dev/null || true
-```
-
-### Smart Server Startup
-The AI agent will automatically:
-
-1. **Detect project type** (React+FastAPI, Next.js, etc.)
-2. **Clean up existing processes** on target ports
-3. **Start servers in correct order** (backend first, then frontend)
-4. **Verify health checks** before proceeding with development
-5. **Store process IDs** for cleanup after build completion
-
-### Integration with Testing
-- **Frontend builds**: Automatically start dev server for live preview during interactive checkpoints
-- **Backend builds**: Start API server for testing endpoints with curl/Postman
-- **Full-stack builds**: Start both servers with proper proxy configuration
-- **Cleanup**: Always stop dev servers after build phase completion
-
-## Process Management Best Practices
-
-### Port Assignment Strategy
-- **Frontend**: 3000 (fallback: 3001, 3002, 3003)
-- **Backend**: 8000 (fallback: 8001, 8002, 8003)  
-- **Database**: 5432 (fallback: 5433, 5434, 5435)
-- **Test instances**: +100 offset (3100, 8100, 5532)
-
-### Health Check Requirements
-```bash
-# Backend health verification
-timeout 30 bash -c 'until curl -f http://localhost:8000/health; do sleep 1; done'
-
-# Frontend health verification  
-timeout 30 bash -c 'until curl -f http://localhost:3000; do sleep 1; done'
-```
-
-### Cleanup After Build
-```bash
-# Read stored PIDs and gracefully shutdown
-if [ -f .claude/dev-pids.txt ]; then
-    cat .claude/dev-pids.txt | xargs kill -TERM 2>/dev/null || true
-    sleep 2
-    cat .claude/dev-pids.txt | xargs kill -9 2>/dev/null || true  
-    rm .claude/dev-pids.txt
-fi
-```
-
-## Check Current Task
-```bash
-ls tasks/in-progress/*.md 2>/dev/null || echo "Use /plan first"
-```
+- **Perfect Requirements Implementation**: Every requirement met exactly
+- **Complete Guideline Adherence**: All guidelines followed without exception
+- **Template-Perfect UI**: Visual implementation matches designs exactly
+- **Specification-Only Features**: No features beyond what was specified
+- **Zero Hallucinations**: No assumptions, interpretations, or creative additions
+- **Dynamic Planning**: Creates additional tasks when dependencies discovered
+- **No Example Contamination**: Zero influence from example files

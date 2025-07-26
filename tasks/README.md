@@ -1,57 +1,34 @@
 # Tasks Directory
 
-This directory contains all project tasks organized by their current status in the enhanced 5-phase workflow.
+This directory contains task files created by the `/plan` command.
 
-## Task Phases
+## Structure
+- `todo/` - Tasks ready to be implemented by `/auto`
+- `done/` - Completed tasks for reference
 
-### analysis/
-**Deep thinking and problem analysis phase**
-- Tasks undergoing comprehensive analysis
-- Problem breakdown and solution exploration
-- Dependency mapping and blocker identification
-- Risk assessment and approach selection
+## Task Creation Principles
+- **Complete Requirements Coverage**: ALL requirements become tasks - no arbitrary limits
+- **User-Provided Sources Only**: Tasks created solely from user requirements, guidelines, templates
+- **Zero Example Contamination**: Example files never used as implementation guidance
+- **Perfect Specification Adherence**: Guidelines and templates followed exactly
 
-### backlog/
-**Ready for implementation (blockers resolved)**
-- Tasks with completed analysis
-- All dependencies identified and resolved
-- Clear success criteria defined
-- Ready for TDD implementation
+## Task Files
+Task files contain:
+- Complete requirements mapping including edge cases
+- Clear dependency relationships
+- Explicit guideline adherence requirements
+- Template compliance specifications
+- Zero ambiguity or interpretation gaps
 
-### in-progress/
-**Being actively worked on (TDD cycle)**
-- Tasks currently in development
-- Following Red-Green-Refactor methodology
-- Active build and test cycles
-- Only one task should be here at a time
+## Dynamic Planning
+During `/build` phase, if bugs reveal missing dependencies:
+- New subtasks created automatically
+- Dependency mappings updated
+- Current task paused until prerequisites completed
+- Plan evolves to ensure complete coverage
 
-### testing/
-**Comprehensive testing and validation**
-- Tasks undergoing final validation
-- 90%+ test coverage verification
-- Security and performance testing
-- Integration and E2E test execution
-
-### completed/
-**Done with full verification**
-- Tasks that have passed all quality gates
-- Fully tested and documented
-- Ready for production deployment
-- Complete audit trail maintained
-
-## Task Format
-
-Every task follows the enhanced format with:
-- Context & purpose with user value
-- Comprehensive success criteria
-- TDD implementation plan
-- Risk assessment and definition of done
-
-## Task Flow
-
-Tasks automatically move through phases:
-1. Created in `analysis/` for deep thinking
-2. Moved to `backlog/` when analysis complete and blockers resolved
-3. Moved to `in-progress/` when development begins
-4. Moved to `testing/` for comprehensive validation
-5. Moved to `completed/` when fully verified and ready for deployment
+## Important Notes
+- **No example references**: AI must never use example files for implementation guidance
+- **Requirements only**: Tasks based exclusively on user specifications  
+- **Complete coverage**: Every requirement must be converted to tasks (could be 5, 15, or 50+ tasks)
+- **Perfect adherence**: Guidelines and templates followed pixel-perfect
